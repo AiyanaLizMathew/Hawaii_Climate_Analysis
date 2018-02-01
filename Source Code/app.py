@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 # Setup Database
-engine = create_engine("sqlite:///..\Resources\hawaii.sqlite")
+engine = create_engine("sqlite:///hawaii.sqlite")
 # Declare the base as automap_base
 Base = automap_base()
 # Use the Base class to reflect the database tables
@@ -128,11 +128,11 @@ def temp_prev_year():
     # Create a list to store the result in dictionary format
     temp_list = []
     for row in temp_prev_year:
-        temp = {"Date":row[0], "Temp(°F)": row[1]}
+        temp = {"Date":row[0], "Temp": row[1]}
         temp_list.append(temp)
 
     # Return the jsonify list
-        return jsonify(station_list)
+        return jsonify(temp_list)
 
 ### /api/v1.0/start and /api/v1.0/start/end
 
